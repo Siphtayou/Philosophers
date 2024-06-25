@@ -6,7 +6,7 @@
 /*   By: agilles <agilles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 18:38:11 by agilles           #+#    #+#             */
-/*   Updated: 2024/06/24 18:24:44 by agilles          ###   ########.fr       */
+/*   Updated: 2024/06/25 18:57:05 by agilles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,12 @@ void	init_philo(t_philo *philo, pthread_mutex_t *fork, t_program *prog,
 		philo[i].time_to_eat = philo_atol(av[3]);
 		philo[i].time_to_sleep = philo_atol(av[4]);
 		philo[i].num_times_to_eat = -1;
+		philo[i].dead = &prog->dead_flag;
+		philo[i].dead_lock = &prog->dead_lock;
+		philo[i].write_lock = &prog->write_lock;
+		philo[i].meal_lock = &prog->meal_lock;
 		if (av[5])
 			philo[i].num_times_to_eat = philo_atol(av[5]);
-		philo[i].dead = &prog->dead_flag;
 		philo[i].r_fork = &fork[i];
 		if (i == 0)
 			philo[i].l_fork = &fork[philo_atol(av[1]) - 1];

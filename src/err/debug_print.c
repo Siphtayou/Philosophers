@@ -6,7 +6,7 @@
 /*   By: agilles <agilles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 16:47:04 by agilles           #+#    #+#             */
-/*   Updated: 2024/06/24 17:50:53 by agilles          ###   ########.fr       */
+/*   Updated: 2024/06/25 18:19:43 by agilles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	print_info(t_program *prog, char **av)
 	{
 		philo = prog->philos[i];
 		printf("Philo ID : %d\n", philo.id);
+		printf("Philo Thread PTR %p\n", &philo.thread);
 		printf("Philo eating %d\n", philo.eating);
 		printf("Philo meals eat %d\n", philo.meals_eaten);
 		printf("Philo last meal %ld\n", philo.last_meal);

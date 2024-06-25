@@ -6,7 +6,7 @@
 /*   By: agilles <agilles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 16:53:17 by agilles           #+#    #+#             */
-/*   Updated: 2024/06/24 17:52:42 by agilles          ###   ########.fr       */
+/*   Updated: 2024/06/25 18:36:39 by agilles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int ac, char **av)
 	init_prog(&prog, philos);
 	init_fork(forks, ft_atoi(av[1]));
 	init_philo(philos, forks, &prog, av);
-	thread_create(&prog);
-	print_info(&prog, av);
+	thread_create(&prog, forks);
+	// print_info(&prog, av);
 	return (0);
 }
