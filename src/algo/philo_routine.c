@@ -6,7 +6,7 @@
 /*   By: agilles <agilles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 18:08:22 by agilles           #+#    #+#             */
-/*   Updated: 2024/06/25 19:35:51 by agilles          ###   ########.fr       */
+/*   Updated: 2024/06/26 16:47:42 by agilles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	*routine(void *ptr)
 		philo_eat(philo); //TO FINISH
 		philo_sleep(philo);
 		philo_think(philo);
+		printf("Philo DEAD_FLAG %d\n", *philo->dead);
 		printf("Philo %d eat %d Spagout\n", philo->id, philo->meals_eaten);
 	}
 	return (ptr);
