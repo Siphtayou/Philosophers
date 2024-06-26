@@ -6,7 +6,7 @@
 /*   By: agilles <agilles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 16:53:26 by agilles           #+#    #+#             */
-/*   Updated: 2024/06/25 19:35:32 by agilles          ###   ########.fr       */
+/*   Updated: 2024/06/26 18:42:01 by agilles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ typedef struct	s_philo
 	int				*dead;
 	pthread_mutex_t	*r_fork;
 	pthread_mutex_t	*l_fork;
-	pthread_mutex_t	*write_lock; //?
+	pthread_mutex_t	*write_lock;
 	pthread_mutex_t	*dead_lock;
 	pthread_mutex_t	*meal_lock; //?
 }						t_philo;
@@ -80,7 +80,7 @@ void	*monitor(void *ptr);
 /**		PHILO		**/
 int		dead_loop(t_philo *philo);
 void	*routine(void *ptr);
-void	print_action(char *str, int id);
+void	print_action(char *str, int id,t_philo philo);
 void	philo_eat(t_philo *philo);
 void	philo_sleep(t_philo *philo);
 void	philo_think(t_philo *philo);
@@ -89,5 +89,16 @@ void	philo_think(t_philo *philo);
 void	*monitor(void *ptr);
 int		check_dead(t_philo *philos);
 int		check_all_ate(t_philo *philos);
+
+/**		COLOR		**/
+void	chose_color(char *str);
+
+void	red(void);
+void	yellow(void);
+void	purple(void);
+void	cyan(void);
+void	magenta(void);
+void	blue(void);
+void	reset(void);
 
 #endif

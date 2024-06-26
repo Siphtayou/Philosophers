@@ -6,7 +6,7 @@
 /*   By: agilles <agilles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 16:28:43 by agilles           #+#    #+#             */
-/*   Updated: 2024/06/26 16:45:15 by agilles          ###   ########.fr       */
+/*   Updated: 2024/06/26 17:18:42 by agilles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,19 +31,16 @@ int	thread_create(t_program *prog, pthread_mutex_t *forks)
 			destroy_all(prog, forks);
 		}
 	}
-	printf("pq?\n");
 	if (pthread_join(observer, NULL) != 0)
 	{
 		thread_join_err();
 		destroy_all(prog, forks);
 	}
-	printf("pq2?\n");
 	i = -1;
 	while (++i < prog->philos[0].num_philo)
 	{
 		if (pthread_join(prog->philos[i].thread, NULL) != 0)
 		{
-			printf("pq%d?\n", i+2);
 			thread_join_err();
 			destroy_all(prog, forks);
 		}

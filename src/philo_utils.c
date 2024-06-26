@@ -6,7 +6,7 @@
 /*   By: agilles <agilles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 16:31:41 by agilles           #+#    #+#             */
-/*   Updated: 2024/06/24 18:14:38 by agilles          ###   ########.fr       */
+/*   Updated: 2024/06/26 18:12:15 by agilles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,5 +86,22 @@ int	ft_usleep(size_t milliseconds)
 	start = get_current_time();
 	while ((get_current_time() - start) < milliseconds)
 		usleep(500);
+	return (0);
+}
+
+int	ft_strcmp(char *s1, char *s2)
+{
+	int	i;
+
+	if (!s1 || !s2)
+		return (1);
+	i = 0;
+	while (s1[i] || s2[i])
+	{
+		if (s1[i] == s2[i])
+			i++;
+		else
+			return (s1[i] - s2[i]);
+	}
 	return (0);
 }

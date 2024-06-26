@@ -6,7 +6,7 @@
 #    By: agilles <agilles@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/18 17:28:18 by agilles           #+#    #+#              #
-#    Updated: 2024/06/25 17:33:16 by agilles          ###   ########.fr        #
+#    Updated: 2024/06/26 18:10:46 by agilles          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRC =	main.c \
 		src/algo/monitor.c \
 		src/algo/philo_routine.c \
 		src/thread.c \
+		src/print_color.c \
 
 OBJ = $(SRC:.c=.o)
 NAME = philo

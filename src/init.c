@@ -6,7 +6,7 @@
 /*   By: agilles <agilles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 18:38:11 by agilles           #+#    #+#             */
-/*   Updated: 2024/06/25 18:57:05 by agilles          ###   ########.fr       */
+/*   Updated: 2024/06/26 18:00:01 by agilles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	init_prog(t_program *prog, t_philo	*philos)
 	pthread_mutex_init(&prog->dead_lock, NULL);
 	pthread_mutex_init(&prog->meal_lock, NULL);
 	pthread_mutex_init(&prog->write_lock, NULL);
-	printf("Prog init exit\n");
 }
 
 void	init_fork(pthread_mutex_t *fork, int philo_num)
@@ -32,7 +31,6 @@ void	init_fork(pthread_mutex_t *fork, int philo_num)
 		pthread_mutex_init(&fork[i], NULL);
 		i++;
 	}
-	printf("Forks init exit\n");
 }
 
 void	init_philo(t_philo *philo, pthread_mutex_t *fork, t_program *prog,
@@ -64,5 +62,4 @@ void	init_philo(t_philo *philo, pthread_mutex_t *fork, t_program *prog,
 		else
 			philo[i].l_fork = &fork[i - 1];
 	}
-	printf("Philos init exit\n");
 }
