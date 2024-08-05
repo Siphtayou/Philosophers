@@ -6,7 +6,7 @@
 /*   By: agilles <agilles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 16:53:17 by agilles           #+#    #+#             */
-/*   Updated: 2024/06/26 18:02:06 by agilles          ###   ########.fr       */
+/*   Updated: 2024/08/05 10:30:43 by agilles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,12 @@ int	main(int ac, char **av)
 
 	if (is_arg_err(ac, av))
 		return (1);
+	if (ft_atoi(av[1]) > 200)
+	{
+		arg_err();
+		// printf("Error : Try again with less than 200 Philos\n");
+		return (1);
+	}
 	init_prog(&prog, philos);
 	init_fork(forks, ft_atoi(av[1]));
 	init_philo(philos, forks, &prog, av);

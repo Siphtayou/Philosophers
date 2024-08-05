@@ -6,7 +6,7 @@
 /*   By: agilles <agilles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 16:53:26 by agilles           #+#    #+#             */
-/*   Updated: 2024/06/26 18:42:01 by agilles          ###   ########.fr       */
+/*   Updated: 2024/08/05 10:44:40 by agilles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ typedef struct	s_philo
 	pthread_mutex_t	*l_fork;
 	pthread_mutex_t	*write_lock;
 	pthread_mutex_t	*dead_lock;
-	pthread_mutex_t	*meal_lock; //?
+	pthread_mutex_t	*meal_lock;
 }						t_philo;
 
 typedef struct s_program

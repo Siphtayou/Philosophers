@@ -6,12 +6,12 @@
 #    By: agilles <agilles@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/18 17:28:18 by agilles           #+#    #+#              #
-#    Updated: 2024/06/26 18:10:46 by agilles          ###   ########.fr        #
+#    Updated: 2024/08/05 14:58:24 by agilles          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -fsanitize=thread
 
 SRC =	main.c \
 		src/check/arg.c \
