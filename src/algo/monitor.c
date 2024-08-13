@@ -6,7 +6,7 @@
 /*   By: agilles <agilles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 18:08:24 by agilles           #+#    #+#             */
-/*   Updated: 2024/08/05 14:14:30 by agilles          ###   ########.fr       */
+/*   Updated: 2024/08/13 18:16:34 by agilles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,13 @@ int	check_all_ate(t_philo *philos)
 		return (0);
 	while (++i < philos[0].num_philo)
 	{
-		pthread_mutex_lock(philos[i].meal_lock);
+		pthread_mutex_lock(philos[0].meal_lock);
 		if (philos[i].meals_eaten < philos[i].num_times_to_eat)
 		{
 			pthread_mutex_unlock(philos[i].meal_lock);
 			return (0);
 		}
-		pthread_mutex_unlock(philos[i].meal_lock);
+		pthread_mutex_unlock(philos[0].meal_lock);
 	}
 	pthread_mutex_lock(philos[0].dead_lock);
 	*philos[0].dead = 1;
