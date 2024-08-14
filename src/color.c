@@ -1,46 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arg.c                                              :+:      :+:    :+:   */
+/*   color.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agilles <agilles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/20 17:39:58 by agilles           #+#    #+#             */
-/*   Updated: 2024/08/14 19:19:17 by agilles          ###   ########.fr       */
+/*   Created: 2024/08/14 19:16:40 by agilles           #+#    #+#             */
+/*   Updated: 2024/08/14 19:17:00 by agilles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../philo.h"
+#include "../philo.h"
 
-int	ft_isdigit(int n)
+void	cyan(void)
 {
-	if ((n >= 48 && n <= 57))
-		return (1);
-	return (0);
+	printf("\033[0;36m");
 }
 
-int	is_arg_err(int ac, char **av)
+void	red(void)
 {
-	int	i;
-	int	j;
+	printf("\033[1;31m");
+}
 
-	i = 0;
-	if (ac < 5 || ac > 6)
-	{
-		arg_err();
-		return (1);
-	}
-	while (av[++i])
-	{
-		j = -1;
-		while (av[i][++j])
-		{
-			if (!ft_isdigit(av[i][j]))
-			{
-				arg_err();
-				return (1);
-			}
-		}
-	}
-	return (0);
+void	yellow(void)
+{
+	printf("\033[1;33m");
 }

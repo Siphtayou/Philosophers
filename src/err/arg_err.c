@@ -6,7 +6,7 @@
 /*   By: agilles <agilles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 17:47:44 by agilles           #+#    #+#             */
-/*   Updated: 2024/08/05 10:30:08 by agilles          ###   ########.fr       */
+/*   Updated: 2024/08/14 19:18:28 by agilles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ void	arg_err(void)
 	printf("200 - The time it takes a philosopher to sleep\n\n");
 	printf("=== OPTIONAL ===\n");
 	printf("7 - Number of times");
-	printf(" all the philosophers need to eat before terminating the program\n");
+	printf(" all the philosophers need to eat ");
+	printf("before terminating the program\n");
 }
 
 void	thread_creation_err(void)

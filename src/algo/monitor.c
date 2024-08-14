@@ -6,7 +6,7 @@
 /*   By: agilles <agilles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 18:08:24 by agilles           #+#    #+#             */
-/*   Updated: 2024/08/13 18:16:34 by agilles          ###   ########.fr       */
+/*   Updated: 2024/08/14 19:24:04 by agilles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,15 @@ void	*monitor(void *ptr)
 			break ;
 	}
 	return (ptr);
+}
+
+int	dead_loop(t_philo *philo)
+{
+	pthread_mutex_lock(philo->dead_lock);
+	if (*philo->dead == 1)
+		return (pthread_mutex_unlock(philo->dead_lock), 1);
+	pthread_mutex_unlock(philo->dead_lock);
+	return (0);
 }
 
 int	check_dead(t_philo *philos)
@@ -66,4 +75,21 @@ int	check_all_ate(t_philo *philos)
 	pthread_mutex_unlock(philos[0].dead_lock);
 	red();
 	return (printf("***Stop Because All Ate***\n"));
+}
+
+void	print_action(char *str, int id, t_philo philo)
+{
+	pthread_mutex_lock(philo.dead_lock);
+	if (*philo.dead == 1 && (ft_strcmp(str, "Die")))
+	{
+		pthread_mutex_unlock(philo.dead_lock);
+		return ;
+	}
+	pthread_mutex_lock(philo.write_lock);
+	cyan();
+	printf("[%ld ms] ", get_current_time());
+	chose_color(str);
+	printf("Philo %d %s.\n", id, str);
+	pthread_mutex_unlock(philo.write_lock);
+	pthread_mutex_unlock(philo.dead_lock);
 }

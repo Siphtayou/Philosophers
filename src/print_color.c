@@ -6,7 +6,7 @@
 /*   By: agilles <agilles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 18:02:51 by agilles           #+#    #+#             */
-/*   Updated: 2024/08/05 09:45:40 by agilles          ###   ########.fr       */
+/*   Updated: 2024/08/14 19:16:36 by agilles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void	chose_color(char *str)
 		blue();
 	else if (!ft_strcmp("start to eat", str))
 		reset();
-	// else
-	// 	reset();
+	else
+		reset();
 	return ;
 }
 
@@ -42,21 +42,6 @@ void	blue(void)
 void	purple(void)
 {
 	printf("\033[0;35m");
-}
-
-void	cyan(void)
-{
-	printf("\033[0;36m");
-}
-
-void	red(void)
-{
-	printf("\033[1;31m");
-}
-
-void	yellow(void)
-{
-	printf("\033[1;33m");
 }
 
 void	reset(void)

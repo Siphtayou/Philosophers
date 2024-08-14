@@ -6,7 +6,7 @@
 /*   By: agilles <agilles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 16:53:26 by agilles           #+#    #+#             */
-/*   Updated: 2024/08/05 10:44:40 by agilles          ###   ########.fr       */
+/*   Updated: 2024/08/14 19:10:08 by agilles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,18 @@
 # include <limits.h>
 # include "printf_libft/ft_printf.h"
 
-#define MAX_PHILO 300
+# define MAX_PHILO 300
 
-typedef struct	s_philo
+typedef struct s_philo
 {
 	pthread_t		thread;
 	int				id;
 	int				eating;
 	int				meals_eaten;
-	long				last_meal;
-	long				time_to_die;
-	long				time_to_eat;
-	long				time_to_sleep;
+	long			last_meal;
+	long			time_to_die;
+	long			time_to_eat;
+	long			time_to_sleep;
 	int				num_times_to_eat;
 	int				num_philo;
 	int				*dead;
@@ -73,14 +73,14 @@ long	get_current_time(void);
 int		ft_usleep(size_t milliseconds);
 
 /**		THREAD		**/
-int		thread_create(t_program *prog, pthread_mutex_t *forks);
+int		thread_create(t_program *prog, pthread_mutex_t *forks, int i);
 void	destroy_all(t_program *prog, pthread_mutex_t *forks);
 void	*monitor(void *ptr);
 
 /**		PHILO		**/
 int		dead_loop(t_philo *philo);
 void	*routine(void *ptr);
-void	print_action(char *str, int id,t_philo philo);
+void	print_action(char *str, int id, t_philo philo);
 void	philo_eat(t_philo *philo);
 void	philo_sleep(t_philo *philo);
 void	philo_think(t_philo *philo);

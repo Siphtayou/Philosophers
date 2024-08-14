@@ -6,16 +6,24 @@
 /*   By: agilles <agilles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 16:28:43 by agilles           #+#    #+#             */
-/*   Updated: 2024/06/26 17:18:42 by agilles          ###   ########.fr       */
+/*   Updated: 2024/08/14 19:12:34 by agilles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
 
-int	thread_create(t_program *prog, pthread_mutex_t *forks)
+void	create_philo(t_program *p, int i, pthread_mutex_t *forks)
+{
+	if ((pthread_create(&p->philos[i].thread, NULL, &routine, &p->philos[i])))
+	{
+		thread_creation_err();
+		destroy_all(p, forks);
+	}
+}
+
+int	thread_create(t_program *prog, pthread_mutex_t *forks, int i)
 {
 	pthread_t	observer;
-	int			i;
 
 	if (pthread_create(&observer, NULL, &monitor, prog->philos) != 0)
 	{
@@ -24,13 +32,7 @@ int	thread_create(t_program *prog, pthread_mutex_t *forks)
 	}
 	i = -1;
 	while (++i < prog->philos[0].num_philo)
-	{
-		if (pthread_create(&prog->philos[i].thread, NULL, &routine, &prog->philos[i]) != 0)
-		{
-			thread_creation_err();
-			destroy_all(prog, forks);
-		}
-	}
+		create_philo(prog, i, forks);
 	if (pthread_join(observer, NULL) != 0)
 	{
 		thread_join_err();
@@ -46,7 +48,6 @@ int	thread_create(t_program *prog, pthread_mutex_t *forks)
 		}
 	}
 	return (0);
-
 }
 
 void	destroy_all(t_program *prog, pthread_mutex_t *forks)
