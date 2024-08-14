@@ -6,7 +6,7 @@
 #    By: agilles <agilles@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/18 17:28:18 by agilles           #+#    #+#              #
-#    Updated: 2024/08/14 19:17:42 by agilles          ###   ########.fr        #
+#    Updated: 2024/08/14 19:25:31 by agilles          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ NAME = philo
 all: $(NAME)
 
 exec: $(NAME)
-	./philo
+	./philo 5 800 200 200 7
 
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) -o $@ $^
