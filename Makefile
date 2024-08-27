@@ -6,12 +6,13 @@
 #    By: agilles <agilles@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/18 17:28:18 by agilles           #+#    #+#              #
-#    Updated: 2024/08/14 19:25:31 by agilles          ###   ########.fr        #
+#    Updated: 2024/08/27 16:16:17 by agilles          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -fsanitize=thread
+#-fsanitize=thread
 
 SRC =	main.c \
 		src/check/arg.c \
@@ -21,6 +22,7 @@ SRC =	main.c \
 		src/philo_utils.c \
 		src/algo/monitor.c \
 		src/algo/philo_routine.c \
+		src/algo/philo_eat.c \
 		src/thread.c \
 		src/print_color.c \
 		src/color.c\

@@ -6,7 +6,7 @@
 /*   By: agilles <agilles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 16:53:26 by agilles           #+#    #+#             */
-/*   Updated: 2024/08/14 19:10:08 by agilles          ###   ########.fr       */
+/*   Updated: 2024/08/27 16:08:30 by agilles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ int		dead_loop(t_philo *philo);
 void	*routine(void *ptr);
 void	print_action(char *str, int id, t_philo philo);
 void	philo_eat(t_philo *philo);
+void	philo_pair_eat(t_philo *philo);
 void	philo_sleep(t_philo *philo);
 void	philo_think(t_philo *philo);
 
